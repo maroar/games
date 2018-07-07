@@ -5,7 +5,10 @@
 
 namespace DungeonFight
 {
-    extern const std::string strDungeonFight;
+// strings
+extern const std::string strDungeonFight;
+// values
+extern const int intNumberOfScreenSlices;
 }
 
 #endif

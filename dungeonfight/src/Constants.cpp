@@ -2,5 +2,8 @@
 
 namespace DungeonFight
 {
-    const std::string strDungeonFight = "Dungeon Fight";
+// strings
+const std::string strDungeonFight = R"(Dungeon Fight)";
+// int
+const int intNumberOfScreenSlices = 6;
 }

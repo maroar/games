@@ -12,20 +12,30 @@ set(DUNGEONFIGHT_CXX_FLAGS)
 set(DUNGEONFIGHT_CXX_FLAGS "${DF_CXX_FLAGS} -std=c++1y -g")
 # source code
 set(DUNGEONFIGHT_SOURCES
-  # Main
+  # src/
   ${PROJECT_SOURCE_DIR}/src/Main.cpp
   ${PROJECT_SOURCE_DIR}/src/Game.cpp
   ${PROJECT_SOURCE_DIR}/src/Game.h
-  # src
   ${PROJECT_SOURCE_DIR}/src/Constants.cpp
   ${PROJECT_SOURCE_DIR}/src/Constants.h
+  #
+  ${PROJECT_SOURCE_DIR}/src/Drawable.h
   ${PROJECT_SOURCE_DIR}/src/Room.cpp
   ${PROJECT_SOURCE_DIR}/src/Room.h
   ${PROJECT_SOURCE_DIR}/src/Stage.cpp
   ${PROJECT_SOURCE_DIR}/src/Stage.h
-  # libraries
-  ${PROJECT_SOURCE_DIR}/include/ngraph.hpp
-  ${PROJECT_SOURCE_DIR}/include/set_ops.hpp
+  # src/structural/
+  ${PROJECT_SOURCE_DIR}/src/structural/Message.cpp
+  ${PROJECT_SOURCE_DIR}/src/structural/Message.h
+  ${PROJECT_SOURCE_DIR}/src/structural/RoomBuilder.cpp
+  ${PROJECT_SOURCE_DIR}/src/structural/RoomBuilder.h
+  ${PROJECT_SOURCE_DIR}/src/structural/Screen.cpp
+  ${PROJECT_SOURCE_DIR}/src/structural/Screen.h
+  ${PROJECT_SOURCE_DIR}/src/structural/StatusBar.cpp
+  ${PROJECT_SOURCE_DIR}/src/structural/StatusBar.h
+  # src/include/
+  ${PROJECT_SOURCE_DIR}/src/include/ngraph.hpp
+  ${PROJECT_SOURCE_DIR}/src/include/set_ops.hpp
 )
 foreach(file ${DUNGEONFIGHT_SOURCES})
     set_source_files_properties(
@@ -39,10 +49,11 @@ include_directories(
   ${PROJECT_BINARY_DIR}
   ${PROJECT_SOURCE_DIR}
   ${PROJECT_SOURCE_DIR}/src
-  ${PROJECT_SOURCE_DIR}/include
+  ${PROJECT_SOURCE_DIR}/src/structural
+  ${PROJECT_SOURCE_DIR}/src/include
 )
 # objects
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake_modules ${CMAKE_MODULE_PATH})
 find_package(SFML 2 COMPONENTS system window graphics audio system REQUIRED)
 include_directories(${SFML_INCLUDE_DIR})
 set(DUNGEONFIGHTEXE DungeonFight.exe)

@@ -7,11 +7,11 @@
 
 namespace DungeonFight 
 {
-    //
-    class Stage
-    {
-        NGraph::tGraph<std::shared_ptr<Room>> rooms_;
-    };
+//
+class Stage
+{
+    NGraph::tGraph<std::shared_ptr<Room>> rooms_;
+};
 }
 
 #endif 
